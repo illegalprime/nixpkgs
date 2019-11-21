@@ -52,12 +52,13 @@ in stdenv.mkDerivation ({
   inherit src version;
 
   nativeBuildInputs = [
-    buildPackages.autoreconfHook
-    buildPackages.makeWrapper
-    buildPackages.perl
-    buildPackages.gnum4
+    autoreconfHook
+    makeWrapper
+    perl
+    gnum4
+    # TODO: Investigate how to remove `buildPackages` on libxslt
     buildPackages.libxslt
-    buildPackages.libxml2
+    libxml2
   ]
     ++ optional isCross buildPackages.erlang;
 
